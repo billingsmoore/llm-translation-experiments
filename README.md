@@ -8,15 +8,13 @@
   <br>
 </h1>
 
-## _Project Name_
-_The project name should match its code's capability so that new users can easily understand what it does._
+## _LLM Translation Experiments_
+This is project contains the scripts to run Tibetan Buddhist text translation prompt experiments with LLM from OpenAI, Anthropic and Google.
 
 ## Owner(s)
 
 _Change to the owner(s) of the new repo. (This template's owners are:)_
-- [@ngawangtrinley](https://github.com/ngawangtrinley)
-- [@mikkokotila](https://github.com/mikkokotila)
-- [@evanyerburgh](https://github.com/evanyerburgh)
+- [@10zinten](https://github.com/10zinten)
 
 
 ## Table of contents
