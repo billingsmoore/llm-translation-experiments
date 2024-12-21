@@ -31,7 +31,13 @@
   },
   "3": {
     "source": "སྔོན་ཆད་མ་བྱུང་བ་ཡང་འདིར་བརྗོད་མེད།། སྡེབ་སྦྱོར་མཁས་པའང་བདག་ལ་ཡོད་མིན་ཏེ།།",
-    "target_gt": "Here I shall say nothing that has not been said before, And in the art of prosody I have no skill."
+    "target_gt": "Here I shall say nothing that has not been said before, And in the art of prosody I have no skill.",
+    "target_pred": {
+      "01_zero_shot_translation": {
+        "output": "Let's break down and translate these lines:\n\nLine 1:\nསྔོན་ཆད་ (previously), མ་བྱུང་བ་ (not occurred), ཡང་ (also), འདིར་ (here), བརྗོད་མེད་ (not expressed)\n\n<t>There is nothing expressed here that has not occurred previously,</t>\n\nLine 2:\nསྡེབ་སྦྱོར་ (poetic composition), མཁས་པ་ (expert), བདག་ལ་ (in me), ཡོད་མིན་ (does not exist), ཏེ་ (and)\n\n<t>And I do not possess expertise in poetic composition.</t>\n\nKey notes:\n- The structure uses negatives (མ་ and མེད་) to emphasize humility\n- སྡེབ་སྦྱོར་ refers specifically to the art of poetic meter and composition in Sanskrit and Tibetan literature",
+        "translation": "There is nothing expressed here that has not occurred previously, And I do not possess expertise in poetic composition."
+      }
+    }
   },
   "4": {
     "source": "དེ་ཕྱིར་གཞན་དོན་བསམ་པའང་བདག་ལ་མེད།། རང་གི་ཡིད་ལ་བསྒོམ་ཕྱིར་ངས་འདི་བརྩམ།།",
