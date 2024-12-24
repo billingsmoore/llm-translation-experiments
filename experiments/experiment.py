@@ -2,6 +2,8 @@ import json
 import re
 from typing import List
 
+from tqdm import tqdm
+
 
 def parse_translations(text: str) -> List[str]:
     """
@@ -44,7 +46,7 @@ class Experiment:
 
     def get_source_texts(self):
         results = json.load(open(self.result_fn, "r"))
-        for text_id, data in results.items():
+        for text_id, data in tqdm(results.items()):
             yield text_id, data["source"]
 
     def save_result(self, text_id, response):
