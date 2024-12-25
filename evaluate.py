@@ -1,4 +1,9 @@
+import json
+from pathlib import Path
+
 import sacrebleu
+
+results_fn = Path(__file__).parent / "results.json"
 
 
 def evaluate_multiple_translations(references, hypotheses):
@@ -11,13 +16,28 @@ def evaluate_multiple_translations(references, hypotheses):
     return bleu.score, chrf.score
 
 
-# Example with multiple sentences
-references = [
-    ["The nature of mind is clear light.", "Mind essence is luminous."],
-    ["The Buddha taught emptiness.", "Emptiness was taught by the Buddha."],
-]
-hypotheses = ["The mind is naturally luminous.", "The Buddha explained emptiness."]
+def get_references_and_hypotheses(results, exp_name):
+    references = []
+    hypotheses = []
+    for text_id, data in results.items():
+        references.append([data["target_gt"]])
+        hypotheses.append(data["target_pred"][exp_name]["translation"])
+    return references, hypotheses
 
+
+results = json.load(open(results_fn, "r"))
+
+exp_name = "01_zero_shot_translation"
+references, hypotheses = get_references_and_hypotheses(results, exp_name)
 bleu_score, chrf_score = evaluate_multiple_translations(references, hypotheses)
+print(exp_name)
+print(f"Corpus BLEU Score: {bleu_score:.2f}")
+print(f"Corpus chrF++ Score: {chrf_score:.2f}")
+print()
+
+exp_name = "02_few_shot_translation_basic"
+references, hypotheses = get_references_and_hypotheses(results, exp_name)
+bleu_score, chrf_score = evaluate_multiple_translations(references, hypotheses)
+print(exp_name)
 print(f"Corpus BLEU Score: {bleu_score:.2f}")
 print(f"Corpus chrF++ Score: {chrf_score:.2f}")

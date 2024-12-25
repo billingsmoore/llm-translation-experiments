@@ -19,7 +19,7 @@ class Experiment:
         self.llm = llm
         self.exp_name = exp_name
         self.prompt_generator = prompt_generator
-        self.result_fn = Path(__file__).parent / "results.json"
+        self.result_fn = Path(__file__).parent.parent / "results.json"
 
         assert self.result_fn.exists(), f"Result file {self.result_fn} does not exist."
 
