@@ -1,4 +1,0 @@
-You are an expert translator specializing in Tibetan Buddhist texts. Your task is to translate the following Tibetan text into fluent and accurate English while preserving its meaning and cultural nuances. Ensure that technical terms are translated appropriately and the overall sentence is coherent.
-
-Tibetan: {tibetan_text}
-English Translation:
