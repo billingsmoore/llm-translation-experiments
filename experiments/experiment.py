@@ -47,15 +47,15 @@ class Experiment:
         )
 
     def run_experiment(self, test=False):
-        for source_text_id, source_text in self.get_source_texts():
-            if self.is_translated(source_text_id):
+        for text_id, source_text in self.get_source_texts():
+            if self.is_translated(text_id):
                 continue
-            prompt = self.prompt_generator(source_text)
+            prompt = self.prompt_generator(source_text, text_id)
             response = self.llm(prompt)
-            self.save_result(source_text_id, prompt, response)
+            self.save_result(text_id, prompt, response)
 
             if test:
-                print(f"Source text ID: {source_text_id}")
+                print(f"Source text ID: {text_id}")
                 print(f"Source text: {source_text}")
                 print("-" * 100)
                 print(f"Prompt: {prompt}")
