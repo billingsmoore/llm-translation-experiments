@@ -1,3 +1,4 @@
+import csv
 import json
 from collections import defaultdict
 
@@ -31,14 +32,34 @@ for text_id, data in results.items():
                 )
 
 
-label = "01_zero_shot"
-for word, translations in word_translations.items():
-    if word != "བྱང་ཆུབ་སེམས་":
-        continue
-    data = translations[label]
-    if len(data) > 1:
-        print(f"  {label}:")
-        for item in data:
-            print(
-                f"    - {word} {item['translation']} ({item['source']}, {item['line']})"
-            )
+# Export to CSV
+
+
+def export_to_csv(label):
+    header = ["Word", "Translation", "Line", "Verse"]
+    rows = []
+    for word, translations in word_translations.items():
+        data = translations[label]
+        if len(data) > 1:
+            for item in data:
+                rows.append(
+                    [
+                        word,
+                        item["translation"],
+                        item["line"],
+                        results[item["source"]]["source"],
+                    ]
+                )
+
+    export_fn = config.reports_path / f"terms_with_multiple_translations_{label}.csv"
+    with open(export_fn, "w") as file:
+        writer = csv.writer(file)
+        writer.writerow(header)  # write the header
+        writer.writerows(rows)
+
+    return export_fn
+
+
+if __name__ == "__main__":
+    label = "target_gt"
+    export_to_csv(label)
