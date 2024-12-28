@@ -1,9 +1,8 @@
 import json
-from pathlib import Path
 
 import sacrebleu
 
-results_fn = Path(__file__).parent / "results.json"
+import config
 
 
 def evaluate_multiple_translations(references, hypotheses):
@@ -26,25 +25,24 @@ def get_references_and_hypotheses(results, exp_name):
     return references, hypotheses
 
 
-results = json.load(open(results_fn, "r"))
+def get_all_exp_names(results):
+    text_ids = list(results.keys())
+    return results[text_ids[0]]["target_pred"].keys()
 
-exp_name = "01_zero_shot_translation"
-references, hypotheses = get_references_and_hypotheses(results, exp_name)
-bleu_score, chrf_score, ter_score = evaluate_multiple_translations(
-    references, hypotheses
-)
-print(exp_name)
-print(f"Corpus BLEU Score: {bleu_score:.2f}")
-print(f"Corpus chrF++ Score: {chrf_score:.2f}")
-print(f"Corpus TER Score: {ter_score:.2f}")
-print()
 
-exp_name = "02_few_shot_translation_basic"
-references, hypotheses = get_references_and_hypotheses(results, exp_name)
-bleu_score, chrf_score, ter_score = evaluate_multiple_translations(
-    references, hypotheses
-)
-print(exp_name)
-print(f"Corpus BLEU Score: {bleu_score:.2f}")
-print(f"Corpus chrF++ Score: {chrf_score:.2f}")
-print(f"Corpus TER Score: {ter_score:.2f}")
+def evaluate(results):
+    for exp_name in get_all_exp_names(results):
+        references, hypotheses = get_references_and_hypotheses(results, exp_name)
+        bleu_score, chrf_score, ter_score = evaluate_multiple_translations(
+            references, hypotheses
+        )
+        print(exp_name)
+        print(f"Corpus BLEU Score: {bleu_score:.2f}")
+        print(f"Corpus chrF++ Score: {chrf_score:.2f}")
+        print(f"Corpus TER Score: {ter_score:.2f}")
+        print()
+
+
+if __name__ == "__main__":
+    results = json.load(open(config.results_fn, "r"))
+    evaluate(results)

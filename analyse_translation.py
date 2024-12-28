@@ -31,8 +31,10 @@ for text_id, data in results.items():
                 )
 
 
-label = "target_gt"
+label = "01_zero_shot"
 for word, translations in word_translations.items():
+    if word != "བྱང་ཆུབ་སེམས་":
+        continue
     data = translations[label]
     if len(data) > 1:
         print(f"  {label}:")

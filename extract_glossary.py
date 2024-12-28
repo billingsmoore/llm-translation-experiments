@@ -36,57 +36,63 @@ Tibetan: {source} English: {translation}
 
 ## Example Response Format:
 1 བདེ་གཤེགས་ཆོས་ཀྱི་སྐུ་མངའ་སྲས་བཅས་དང་།
-1.1 Glossary: བདེ་གཤེགས་ (Sugata), ཆོས་ཀྱི་སྐུ་ (dharmakāya), མངའ་ (possess), སྲས་ (offspring)
+1.1 བདེ་གཤེགས་ (Sugata)
+1.2 ཆོས་ཀྱི་སྐུ་ (dharmakāya)
+1.3 མངའ་ (possess)
+1.4 སྲས་ (offspring)
 2 །ཕྱག་འོས་ཀུན་ལའང་གུས་པར་ཕྱག་འཚལ་ཏེ།
-2.1 Glossary: ཕྱག་འོས་ (worthy of veneration),
+2.1 ཕྱག་འོས་ (worthy of veneration)
 3 །བདེ་གཤེགས་སྲས་ཀྱི་སྡོམ་ལ་འཇུག་པ་ནི།
-3.1 བདེ་གཤེགས་ (Sugata), སྲས་ (offspring), སྡོམ་ (vows), འཇུག་པ་ (enter)
+3.1 བདེ་གཤེགས་ (Sugata)
+3.2 སྲས་ (offspring)
+3.3 སྡོམ་ (vows)
+3.4 འཇུག་པ་ (enter, follow)
 """
 
 
 def parse_glossary(text):
-    """
-    Parse Tibetan text with glossary into a dictionary format.
-
-    Args:
-        text (str): Multi-line string containing numbered Tibetan text and glossary
-
-    Returns:
-        dict: Dictionary with Tibetan text as keys and glossary dictionaries as values
-    """
-    # Initialize result dictionary
-    result = {}
-
-    # Split text into lines and remove empty lines
-    lines = [line.strip() for line in text.strip().split("\n") if line.strip()]
-
-    current_text = ""
+    lines = text.strip().split("\n")
+    glossary = {}
+    current_main_line = None
 
     for line in lines:
-        # If line starts with number but no decimal (main text)
-        if line[0].isdigit() and "." not in line:
-            # Remove number and period from start of line
-            current_text = line.split(" ", 1)[1].strip()
-            result[current_text] = {}
+        # Skip empty lines
+        if not line.strip():
+            continue
 
-        # If line starts with number and decimal (glossary)
-        elif "." in line.split(" ")[0]:
-            # Skip the glossary label
-            glossary_items = line.split(":", 1)[1].strip()
+        # Check if this is a main line (starts with number without decimal)
+        if line[0].isdigit() and "." not in line.split()[0]:
+            # Extract the actual text (remove the line number)
+            text = " ".join(line.split()[1:])
+            current_main_line = text
+            glossary[current_main_line] = {}
 
-            # Split items by comma and process each
-            items = [item.strip() for item in glossary_items.split(",")]
+        # Check if this is a glossary entry (starts with number.number)
+        elif "." in line.split()[0]:
+            # Only process if we have a current main line
+            if current_main_line is not None:
+                # Split the line into parts
+                parts = line.split()
+                # Remove the number
+                parts = parts[1:]
 
-            for item in items:
-                # Remove parentheses and split by space
-                tibetan, english = item.strip().split("(")
-                tibetan = tibetan.strip()
-                english = english.rstrip(")").strip()
+                # Extract the Tibetan word
+                tibetan_word = parts[0]
 
-                # Add to dictionary
-                result[current_text][tibetan] = english
+                # Get the meaning part (everything in parentheses)
+                meaning_text = " ".join(parts[1:]).strip("()")
 
-    return result
+                # Split meanings by comma and strip whitespace
+                meanings = [m.strip() for m in meaning_text.split(",")]
+
+                # If there's only one meaning, store as string
+                # If multiple meanings, store as list
+                final_meaning = meanings[0] if len(meanings) == 1 else meanings
+
+                # Add to the dictionary
+                glossary[current_main_line][tibetan_word] = final_meaning
+
+    return glossary
 
 
 def save_glossary(text_id, glossary, exp_name=None):
