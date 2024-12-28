@@ -46,9 +46,9 @@ class Experiment:
             and self.exp_name in results[text_id]["target_pred"]
         )
 
-    def run_experiment(self, test=False):
+    def run_experiment(self, replace=False, test=False):
         for text_id, source_text in self.get_source_texts():
-            if self.is_translated(text_id):
+            if not replace and self.is_translated(text_id):
                 continue
             prompt = self.prompt_generator(source_text, text_id)
             response = self.llm(prompt)

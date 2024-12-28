@@ -61,5 +61,5 @@ def export_to_csv(label):
 
 
 if __name__ == "__main__":
-    label = "target_gt"
+    label = "04_commentary_assisted"
     export_to_csv(label)
