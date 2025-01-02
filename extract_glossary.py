@@ -123,7 +123,7 @@ def extract_glossary():
             glossary = parse_glossary(output)
             save_glossary(text_id, glossary)
         for exp_name, llm_translation in get_experiments_translation(text_id):
-            if exp_name != "04_commentary_assisted":
+            if exp_name != "06_glossary_assisted":
                 continue
             if is_glossary_extracted(text_id, exp_name=exp_name):
                 continue

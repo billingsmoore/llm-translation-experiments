@@ -33,9 +33,12 @@ result_fn = "results.json"
 # json.dump(results, open(result_fn, "w"), ensure_ascii=False, indent=2)
 
 ## Delete exp glossary
-exp_name = "04_commentary_assisted"
+exp_name = "06_glossary_assisted"
 results = json.load(open(result_fn, "r"))
 for text_id, data in results.items():
     if "glossary" in data and exp_name in data["glossary"]:
         del data["glossary"][exp_name]
+
+    if "target_pred" in data and exp_name in data["target_pred"]:
+        del data["target_pred"][exp_name]
 json.dump(results, open(result_fn, "w"), ensure_ascii=False, indent=2)

@@ -23,10 +23,10 @@ class Experiment:
 
         assert self.result_fn.exists(), f"Result file {self.result_fn} does not exist."
 
-    def get_source_texts(self):
+    def get_text_instance(self):
         results = json.load(open(self.result_fn, "r"))
         for text_id, data in tqdm(results.items()):
-            yield text_id, data["source"]
+            yield text_id, data["source"], data["target_gt"]
 
     def save_result(self, text_id, prompt, response):
         results = json.load(open(self.result_fn, "r"))
@@ -47,7 +47,7 @@ class Experiment:
         )
 
     def run_experiment(self, replace=False, test=False):
-        for text_id, source_text in self.get_source_texts():
+        for text_id, source_text, human_trans in self.get_text_instance():
             if not replace and self.is_translated(text_id):
                 continue
             prompt = self.prompt_generator(source_text, text_id)
@@ -55,12 +55,13 @@ class Experiment:
             self.save_result(text_id, prompt, response)
 
             if test:
-                print(f"Source text ID: {text_id}")
-                print(f"Source text: {source_text}")
-                print("-" * 100)
                 print(f"Prompt: {prompt}")
                 print("-" * 100)
                 print(f"Response: {response}")
+                print("-" * 100)
+                print(f"Source text ID: {text_id}")
+                print(f"Source text: {source_text}")
+                print(f"Human translation: {human_trans}")
                 print("-" * 100)
                 print(f"Translations: {parse_translations(response)}")
                 break
