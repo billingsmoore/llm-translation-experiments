@@ -12,13 +12,13 @@ for _, data in results.items():
     for exp_name in headers[2:]:
         if exp_name in data["target_pred"]:
             translation = data["target_pred"][exp_name]["translation"]
-            # translation = translation.replace("\n", " ")
+            translation = translation.replace("\n", " ")
             row.append(translation)
         else:
             row.append("")
     rows.append(row)
 
-output_fn = config.reports_path / "translations.csv"
+output_fn = config.reports_path / "translations_comparison.csv"
 with open(output_fn, "w", newline="") as file:
     writer = csv.writer(file)
     writer.writerow(headers)
