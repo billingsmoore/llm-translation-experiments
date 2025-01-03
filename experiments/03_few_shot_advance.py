@@ -32,8 +32,7 @@ Input:
 Key terms:
 བདེ་གཤེགས་(Sugata), ཆོས་ཀྱི་སྐུ་(dharmakāya), སྲས་(Offspring), ཕྱག་འཚལ་(Prostrate)
 
-<t>
-I prostrate with respect to the sugatas, Who have the dharmakaya, and their offspring, And also to all worthy of veneration. I'll teach in brief, according to the scriptures, The way to enter the bodhisattva's vows.</t>
+<t>I prostrate with respect to the sugatas, Who have the dharmakaya, and their offspring, And also to all worthy of veneration. I'll teach in brief, according to the scriptures, The way to enter the bodhisattva's vows.</t>
 
 Input:
 {tibetan_text}
