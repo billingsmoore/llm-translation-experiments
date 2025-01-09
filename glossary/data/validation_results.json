@@ -1,0 +1,646 @@
+{
+  "summary": {
+    "total_lines": 5,
+    "average_score": 20.38095238095238
+  },
+  "lines": [
+    {
+      "line_number": 1,
+      "source": "བདེ་གཤེགས་ཆོས་ཀྱི་སྐུ་མངའ་སྲས་བཅས་དང་། །ཕྱག་འོས་ཀུན་ལའང་གུས་པར་ཕྱག་འཚལ་ཏེ། །བདེ་གཤེགས་སྲས་ཀྱི་སྡོམ་ལ་འཇུག་པ་ནི། །ལུང་བཞིན་མདོར་བསྡུས་ནས་ནི་བརྗོད་པར་བྱ། །",
+      "target": "I prostrate with respect to the sugatas, Who have the dharmakaya, and their offspring, And also to all worthy of veneration. I'll teach in brief, according to the scriptures, The way to enter the bodhisattva's vows.",
+      "terms": [
+        {
+          "source_term": "བདེ་གཤེགས།",
+          "normalized_term": "བདེ་གཤེགས",
+          "categories": {
+            "person": {
+              "translations": [
+                "Well-Gone One"
+              ],
+              "definitions": [
+                "Buddha in the presence of whom the buddha Atyuccagāmin (304 according to the third enumeration) first gave rise to the mind of awakening."
+              ],
+              "translation_found": false
+            },
+            "term": {
+              "translations": [
+                "sugata",
+                "well-gone one"
+              ],
+              "definitions": [
+                "An epithet applied to buddhas, often interpreted to mean “one gone to bliss.” It should be noted, though, that in Sanskrit the prefixsu-(Tib.bde bar) is adverbial, and that gata denotes a state of being rather than literal motion, hence the current rendering of “well-gone one,” that is, “one who has fared well.”",
+                "An epithet for a buddha.",
+                "One of the standard epithets of the Buddha Śākyamuni and other buddhas. According to Buddhaghoṣa, the term means that the way the Buddha went (Skt.gata) is good (Skt.su), and where he went (gata) is good (su)."
+              ],
+              "translation_found": true
+            }
+          },
+          "found_in_source": true,
+          "found_in_translation": true,
+          "grammar_analysis": "It is used as a noun referring to the Buddha."
+        },
+        {
+          "source_term": "ཆོས་ཀྱི་སྐུ།",
+          "normalized_term": "ཆོས་ཀྱི་སྐུ",
+          "categories": {
+            "term": {
+              "translations": [
+                "Dharma body",
+                "body of Dharma",
+                "body of reality",
+                "buddha body of reality",
+                "dharmakāya",
+                "truth body"
+              ],
+              "definitions": [
+                "Also translated “ultimate body.”",
+                "Distinct from therūpakāyaor “form body” of a buddha. In origin it was a term for the presence of the Dharma, which would continue after the Buddha’s passing. It also came to refer to someone who was an embodiment of the Dharma, and also the eternal, imperceptible realization of a buddha, and therefore became synonymous with the true nature. In the context of the teaching of the threekāyasof a buddha, only the termdharmakāya(chos kyi sku), rather thandharmaśarīra, (chos kyi lus) was used.",
+                "In distinction to the rūpakāya, or form body of a buddha, this is the eternal imperceptible realization of a buddha. In origin it was a term for the presence of the Dharma, and has come to become synonymous with the true nature.",
+                "In distinction to therūpakāya, or form body of a buddha, this is the eternal, imperceivable realization of a buddha. In origin it was a term for the presence of the Dharma, and it has since become synonymous with the true nature.",
+                "In its earliest use it generally meant that though the corporeal body of the Buddha had perished, his “body of the Dharma” continued. It also referred to the Buddha’s realization of reality, to his qualities as a whole, or to his teachings as embodying him. It later came to be synonymous with enlightenment or buddhahood, a “body” that can only be “seen” by a buddha.",
+                "In its earliest use it meant that though the corporeal body of the Buddha had perished, his “body of the Dharma” continued. It later came to be synonymous with enlightenment or buddhahood, a “body” that can only be “seen” by a buddha.",
+                "One of the subdivisions in the collection of dharmas that constitutes a buddha, variously explained but usually more closely related to the aspect of ultimate truth.",
+                "One of three “bodies” manifested by the buddhas.",
+                "See.",
+                "The Buddha as the embodiment of his teachings, the all-encompassing aspect of absolute reality.",
+                "The Dharma body, which is a buddha’s awakening, in contrast to his “Form body,” the rūpakāya, which is his visibleformperceived by other beings.",
+                "The ultimate nature or essence of the enlightened mind of the buddhas. It is said to be non-arising, free from the limits of conceptual elaboration, empty of inherent existence, naturally radiant, beyond duality, and spacious.",
+                "The ultimate nature or essence of the fruitional enlightened mind of the buddhas, which is nonarising, free from the limits of conceptual elaboration, empty of inherent existence, naturally radiant, beyond duality, and spacious.",
+                "The “body of phenomena,” one of the three (sometimes four) bodies of the Buddha.",
+                "The “body of phenomena” as they really are; the state of complete and perfect awakening.",
+                "“Body of dharma”; refers to the Buddha’s realization of reality. Sometimes translated “truth body” or “reality body.” In other contexts, particularly in early texts, the term may also refer to the Buddha’s qualities as a collective whole, or to his teachings as embodying him.",
+                "“Body of truth.” As one of the three bodies of a buddha, it refers to his realization of the nature of reality."
+              ],
+              "translation_found": false
+            }
+          },
+          "found_in_source": true,
+          "found_in_translation": false,
+          "grammar_analysis": "It is used as a noun phrase referring to the Dharma body of the Buddha."
+        },
+        {
+          "source_term": "བདེ་གཤེགས།",
+          "normalized_term": "བདེ་གཤེགས",
+          "categories": {
+            "person": {
+              "translations": [
+                "Well-Gone One"
+              ],
+              "definitions": [
+                "Buddha in the presence of whom the buddha Atyuccagāmin (304 according to the third enumeration) first gave rise to the mind of awakening."
+              ],
+              "translation_found": false
+            },
+            "term": {
+              "translations": [
+                "sugata",
+                "well-gone one"
+              ],
+              "definitions": [
+                "An epithet applied to buddhas, often interpreted to mean “one gone to bliss.” It should be noted, though, that in Sanskrit the prefixsu-(Tib.bde bar) is adverbial, and that gata denotes a state of being rather than literal motion, hence the current rendering of “well-gone one,” that is, “one who has fared well.”",
+                "An epithet for a buddha.",
+                "One of the standard epithets of the Buddha Śākyamuni and other buddhas. According to Buddhaghoṣa, the term means that the way the Buddha went (Skt.gata) is good (Skt.su), and where he went (gata) is good (su)."
+              ],
+              "translation_found": true
+            }
+          },
+          "found_in_source": true,
+          "found_in_translation": true,
+          "grammar_analysis": "It is used as a noun referring to the Buddha."
+        },
+        {
+          "source_term": "སྡོམ།",
+          "normalized_term": "སྡོམ",
+          "categories": {
+            "term": {
+              "translations": [
+                "index",
+                "restrain"
+              ],
+              "definitions": [],
+              "translation_found": false
+            }
+          },
+          "found_in_source": true,
+          "found_in_translation": false,
+          "grammar_analysis": "It is used as a noun referring to the vows or precepts."
+        },
+        {
+          "source_term": "ལུང་།",
+          "normalized_term": "ལུང",
+          "categories": {
+            "text": {
+              "translations": [
+                "Āgama"
+              ],
+              "definitions": [
+                "The Mūlasarvāstivādin tradition grouped the Buddha’s early sūtra discourses into four divisions, orĀgama(Tib.mdo sde’i lung sde bzhi): the Dīrghāgama (Tib.lung ring po), the Madhyamāgama (Tib.lung bar ma), the Ekottarikāgama (Tib.lung gcig las ’phros pa), and the Saṃyuktāgama(Tib.lung dag ldan/yang dar par ldan pa’i lung). They are more familiar to many English-speaking Buddhists through the translations of their Pali correlates: the Dīgha Nikāya, Majjhima Nikāya, Aṅguttara Nikāya, and the Samyutta Nikāya, for which see the Wisdom Publications titles:The Long Discourses of the Buddha,The Middle-Length Discourses of the Buddha,The Numerical Discourses of the Buddha, andThe Connected Discourses of the Buddha, respectively."
+              ],
+              "translation_found": false
+            }
+          },
+          "found_in_source": true,
+          "found_in_translation": false,
+          "grammar_analysis": "It is used as a noun referring to the teachings or scriptures."
+        }
+      ],
+      "score": 28.57142857142857
+    },
+    {
+      "line_number": 2,
+      "source": "བྱང་ཆུབ་སྨོན་པའི་སེམས་ལས་ནི། །འཁོར་ཚེ་འབྲས་བུ་ཆེ་འབྱུང་ཡང་། །ཇི་ལྟར་འཇུག་པའི་སེམས་བཞིན་དུ། །བསོད་ནམས་རྒྱུན་ཆགས་འབྱུང་བ་མིན། །",
+      "target": "Even in samsara, great results come from aspiring bodhichitta. However, unlike engaged bodhichitta, the merit is not continuous.",
+      "terms": [
+        {
+          "source_term": "བྱང་ཆུབ།",
+          "normalized_term": "བྱང་ཆུབ",
+          "categories": {
+            "person": {
+              "translations": [
+                "Awakening",
+                "Bodhi"
+              ],
+              "definitions": [
+                "Attendant of the buddha Kusumaraśmi.",
+                "One of the rāśis.",
+                "Son of the buddha Dharaṇīśvara.",
+                "Son of the buddha Kṛtārtha."
+              ],
+              "translation_found": false
+            },
+            "term": {
+              "translations": [
+                "awakening",
+                "bodhi",
+                "enlightenment"
+              ],
+              "definitions": [
+                "Awakeningrefers to the state of realization and understanding possessed by a buddha regarding the nature of things.",
+                "I.e.,awakeningto the reality of phenomena (inner and outer) as they actually are.",
+                "Lit. “awakening.”",
+                "The Sanskrit can mean knowledge, realization, waking, blossoming, etc., according to context. The Tibetan translates as “purified and accomplished.”",
+                "The realization of truth that is nondual and beyond concepts.",
+                "This may be awakening in the literal sense, as from sleep, but in the Buddhist context it is the awakening from ignorance, i.e., the direct realization of truth.",
+                "This word requires too much explanation for this glossary because, indeed, the whole sūtra—and the whole of Buddhist literature—is explanatory of only this. Here we simply mention the translation equivalent."
+              ],
+              "translation_found": true
+            }
+          },
+          "found_in_source": true,
+          "found_in_translation": true,
+          "grammar_analysis": "It is used as a noun, referring to enlightenment."
+        },
+        {
+          "source_term": "སེམས།",
+          "normalized_term": "སེམས",
+          "categories": {
+            "term": {
+              "translations": [
+                "bodhicitta",
+                "mind",
+                "state of mind",
+                "thought"
+              ],
+              "definitions": [
+                "One of the four bases of magical power."
+              ],
+              "translation_found": false
+            },
+            "person": {
+              "translations": [
+                "Citta"
+              ],
+              "definitions": [],
+              "translation_found": false
+            }
+          },
+          "found_in_source": true,
+          "found_in_translation": false,
+          "grammar_analysis": "It is used as a noun, referring to mind or intention."
+        },
+        {
+          "source_term": "འཁོར།",
+          "normalized_term": "འཁོར",
+          "categories": {
+            "person": {
+              "translations": [
+                "Bhramaṇa"
+              ],
+              "definitions": [
+                "One of the muhūrtas."
+              ],
+              "translation_found": false
+            },
+            "place": {
+              "translations": [
+                "Retinue"
+              ],
+              "definitions": [
+                "A realm of the triple-lute-bearer gods."
+              ],
+              "translation_found": false
+            },
+            "term": {
+              "translations": [
+                "assembly"
+              ],
+              "definitions": [],
+              "translation_found": false
+            }
+          },
+          "found_in_source": true,
+          "found_in_translation": false,
+          "grammar_analysis": "It is used as a noun, referring to the cycle of existence."
+        },
+        {
+          "source_term": "འབྲས་བུ་ཆེ།",
+          "normalized_term": "འབྲས་བུ་ཆེ",
+          "categories": {
+            "person": {
+              "translations": [
+                "Bṛhatphala"
+              ],
+              "definitions": [
+                "A divine king in the Heaven of Great Fruition."
+              ],
+              "translation_found": false
+            },
+            "place": {
+              "translations": [
+                "Bṛhatphala",
+                "Great Fruition Heaven",
+                "Great Result",
+                "Heaven of Great Fruition",
+                "Large Fruit"
+              ],
+              "definitions": [
+                "A class of gods who inhabit one of the levels in the highest heaven of the realm of form.",
+                "In the Sarvāstivāda tradition, the highest of the three paradises that correspond to the fourth dhyāna in the form realm.",
+                "Lit. “Those in theGreat Result.” The twelfth of the seventeen heavens of the form realm; also the name of the gods living there. In the form realm, which is structured according to the four concentrations and pure abodes‍, or Śuddhāvāsa‍, it is listed as the third of the three heavens that correspond to the fourth of the four concentrations.",
+                "One of the heavens of Buddhist cosmology, third of three levels of the fourth dhyāna realm.",
+                "Second of three heavens of gods on the fourth concentration level.",
+                "Sixteenth and highest of the sixteen god realms of form that correspond to the four meditative concentrations, meaning “Great Fruition.”",
+                "The twelfth of the seventeen heavens of the form realm; also the name of the gods living there. In the form realm, which is structured according to the four concentrations and the pure realms, it is listed as the third of the three heavens that correspond to the fourth of the four concentrations.",
+                "Twelfth heaven of the form realm, it is the third of the three heavens that make up the fourth dhyāna heaven in the form realm."
+              ],
+              "translation_found": false
+            }
+          },
+          "found_in_source": true,
+          "found_in_translation": false,
+          "grammar_analysis": "It is used as a noun phrase, referring to great result or fruit."
+        },
+        {
+          "source_term": "སེམས།",
+          "normalized_term": "སེམས",
+          "categories": {
+            "term": {
+              "translations": [
+                "bodhicitta",
+                "mind",
+                "state of mind",
+                "thought"
+              ],
+              "definitions": [
+                "One of the four bases of magical power."
+              ],
+              "translation_found": false
+            },
+            "person": {
+              "translations": [
+                "Citta"
+              ],
+              "definitions": [],
+              "translation_found": false
+            }
+          },
+          "found_in_source": true,
+          "found_in_translation": false,
+          "grammar_analysis": "It is used as a noun, referring to mind or intention."
+        },
+        {
+          "source_term": "བསོད་ནམས།",
+          "normalized_term": "བསོད་ནམས",
+          "categories": {
+            "term": {
+              "translations": [
+                "merit",
+                "meritorious deeds"
+              ],
+              "definitions": [
+                "An accumulation of positive karma that ripens into a positive result.",
+                "In this text, merit is established as the most prized possession of human beings, more than good looks, diligence, artistry, and insight. In Buddhism more generally, merit refers to the wholesome tendencies imprinted in the mind as a result of positive and skillful thoughts, words, and actions that ripen in the experience of happiness and well-being. According to the Mahāyāna, it is important to dedicate the merit of one’s wholesome actions to the benefit of all sentient beings, ensuring that others also experience the results of the positive actions generated.",
+                "Merit refers to the wholesome tendencies imprinted in the mind as a result of positive and skillful thoughts, words, and actions that ripen in the experience of happiness and well-being. According to the Greater Vehicle, it is important to dedicate the merit of one’s wholesome actions to the benefit of all beings, ensuring that others also experience the results of the positive actions generated.",
+                "Positive activity that is conducive to happiness and freedom from suffering; the resulting spiritual momentum that enables one to progress on the path.",
+                "The karmic potential that accumulates through good actions and which in the future results in happiness and good fortune.",
+                "Virtuous thoughts, words, and actions that produce positive results, or merit. In Mahāyāna practice, these are to be dedicated for the benefit of all sentient beings. Also rendered here as “meritorious deeds.”"
+              ],
+              "translation_found": true
+            },
+            "place": {
+              "translations": [
+                "Puṇḍra"
+              ],
+              "definitions": [
+                "The one-time capital city of Gauḍa, corresponding to the modern Mahasthan in Bangladesh. See."
+              ],
+              "translation_found": false
+            },
+            "person": {
+              "translations": [
+                "Merit",
+                "Puṇya"
+              ],
+              "definitions": [
+                "A buddha who is not listed in the first or second list but is 978th in the third list.",
+                "Attendant of the buddha Kathendra.",
+                "The 221st buddha in the first list, 220th in the second list, and 220th in the third list."
+              ],
+              "translation_found": false
+            }
+          },
+          "found_in_source": true,
+          "found_in_translation": true,
+          "grammar_analysis": "It is used as a noun, referring to merit or virtue."
+        },
+        {
+          "source_term": "རྒྱུན།",
+          "normalized_term": "རྒྱུན",
+          "categories": {
+            "term": {
+              "translations": [
+                "continuum"
+              ],
+              "definitions": [
+                "In the present text this refers to the mental continuum."
+              ],
+              "translation_found": false
+            }
+          },
+          "found_in_source": true,
+          "found_in_translation": false,
+          "grammar_analysis": "It is used as a noun, referring to a stream or continuum."
+        }
+      ],
+      "score": 13.333333333333334
+    },
+    {
+      "line_number": 3,
+      "source": "ཐོག་མ་མེད་ལྡན་འཁོར་བ་ནས། །ཚེ་རབས་འདི་འམ་གཞན་དག་ཏུ། །བདག་གིས་མ་འཚལ་སྡིག་བགྱིས་པའམ། །བགྱིད་དུ་སྩལ་བ་ཉིད་དང་ནི། །",
+      "target": "In this and other lives, throughout beginningless samsara, I have unknowingly committed misdeeds, or caused others to commit them.",
+      "terms": [
+        {
+          "source_term": "འཁོར་བ།",
+          "normalized_term": "འཁོར་བ",
+          "categories": {
+            "term": {
+              "translations": [
+                "cyclic existence",
+                "life",
+                "saṃsāra"
+              ],
+              "definitions": [
+                "A state of involuntary existence conditioned by afflicted mental states and the imprint of past actions, characterized by suffering in a cycle of life, death, and rebirth within different realms of being.",
+                "A state of involuntary existence conditioned by afflicted mental states and the imprint of past actions, characterized by suffering in a cycle of life, death, and rebirth. On its reversal, the contrasting state of nirvāṇa is attained, free from suffering and the processes of rebirth.",
+                "Conditioned existence fraught with suffering.",
+                "The Sanskrit means “continuation,” and the Tibetan means “cycle,” both referring to an unending series of unenlightened existences.",
+                "The beginningless cycle of birth and death within the six realms of conditioned existence.",
+                "The beginningless cycle of rebirth characterized by suffering and caused by the three faults of ignorance, attachment, and anger.",
+                "The conditioned realm of cyclic existence in which beings are confined to perpetual suffering and unsatisfactoriness.",
+                "The continuum of repeated birth and death.",
+                "The cycle of birth and death; that is,lifeas experienced by living beings under the influence of ignorance, not any sort of objective world external to the persons experiencing it.",
+                "The cycle of rebirth.",
+                "The cycle of transmigrations through which sentient beings revolve and suffer.",
+                "“Cyclic existence,” the cycle of birth and death driven by mental afflictions and karmic actions."
+              ],
+              "translation_found": false
+            }
+          },
+          "found_in_source": true,
+          "found_in_translation": false,
+          "grammar_analysis": "This term is marked with the case marker '།' and refers to the concept of cyclic existence or samsara, so it is used as a noun."
+        },
+        {
+          "source_term": "བདག",
+          "normalized_term": "བདག",
+          "categories": {
+            "term": {
+              "translations": [
+                "self",
+                "soul"
+              ],
+              "definitions": [
+                "Also translated often as “self” or “I.”",
+                "It is crucial to understand what is meant by “self,” before one is able to realize the all-important “absence of self.” Before we can discover an absence, we have to know what we are looking for. In Mahāyāna, there is aselfof persons and aselfof things, both presumed habitually by living beings and hence informative of their perceptions. Were these “selves” to exist as they appear because of our presumption, they should exist as substantial,self-subsistent entities within things, or as the intrinsic realities of things, or as the intrinsic identities of things, all permanent, unrelated and unrelative, etc. The nondiscovery of such “selves” within changing, relative, interdependent persons and things is the realization of ultimate reality, or absence of self."
+              ],
+              "translation_found": false
+            }
+          },
+          "found_in_source": true,
+          "found_in_translation": false,
+          "grammar_analysis": "This term is not marked with a case marker, but it refers to the concept of 'self' or 'I', so it is used as a noun."
+        },
+        {
+          "source_term": "སྡིག",
+          "normalized_term": "སྡིག",
+          "categories": {
+            "term": {
+              "translations": [
+                "scorpion"
+              ],
+              "definitions": [],
+              "translation_found": false
+            }
+          },
+          "found_in_source": true,
+          "found_in_translation": false,
+          "grammar_analysis": "This term is not marked with a case marker, but it refers to the concept of 'sin' or 'negativity', so it is used as a noun."
+        }
+      ],
+      "score": 0.0
+    },
+    {
+      "line_number": 4,
+      "source": "མྱུར་བ་ཉིད་དུ་འཆི་འགྱུར་བས། །ཇི་སྲིད་དུ་ནི་ཚོགས་བསག་བྱ། །དེ་ཚེ་ལེ་ལོ་སྤངས་ཀྱང་ནི། །དུས་མ་ཡིན་པར་ཅི་ཞིག་བྱ། །",
+      "target": "You will die soon, so until then gather the accumulations. At that time, even if you give up sloth, what can you do when it's too late?",
+      "terms": [
+        {
+          "source_term": "ཚོགས།",
+          "normalized_term": "ཚོགས",
+          "categories": {
+            "place": {
+              "translations": [
+                "Saṃbhāra"
+              ],
+              "definitions": [
+                "A buddha realm."
+              ],
+              "translation_found": false
+            },
+            "person": {
+              "translations": [
+                "Saṃhāra"
+              ],
+              "definitions": [
+                "Avidyārājafrom the personal retinue of Vajrapāṇi."
+              ],
+              "translation_found": false
+            },
+            "term": {
+              "translations": [
+                "accumulation",
+                "collection",
+                "provision",
+                "saṅgha"
+              ],
+              "definitions": [
+                "A congregation of monks, or the totality of the Buddha’s monks regarded as the jewel of the Saṅgha (one of the Three Jewels). Also translated here as “congregation.”",
+                "In the context of the psychophysical constituents, refers to the combination of individual sense-consciousnesses related to the five senses, and that of the mind, making five or six constituents depending on the context (and in some texts more) that collectively constitute “consciousness.”",
+                "This term denotes the two accumulations of merit and wisdom that are gathered by bodhisattvas on the path to buddhahood.",
+                "This term denotes the two provisions of merit and wisdom that are gathered by bodhisattvas on the path to consummate buddhahood. The fulfilment of the authentic provision of merit (puṇyasambhāra,bsod nams kyi tshogs) and the authentic provision of wisdom (jñānasambhāra,ye shes kyi tshogs) constitutes the fruition of the entire path according to the Great Vehicle, resulting in the maturation of the buddha body of form and the buddha body of reality, respectively.",
+                "Usually mentioned as a pair, as “twoprovisions/accumulations” of wisdom (acquired through meditation) and merit (acquired through moral conduct)."
+              ],
+              "translation_found": true
+            }
+          },
+          "found_in_source": true,
+          "found_in_translation": true,
+          "grammar_analysis": "It appears to be a noun, likely meaning 'collection' or 'accumulation' in this context."
+        },
+        {
+          "source_term": "ལེ་ལོ།",
+          "normalized_term": "ལེ་ལོ",
+          "categories": {
+            "term": {
+              "translations": [
+                "laziness"
+              ],
+              "definitions": [
+                "One of the twenty auxiliary afflictions (Skt.upakleśa) derived from ignorance."
+              ],
+              "translation_found": false
+            }
+          },
+          "found_in_source": true,
+          "found_in_translation": false,
+          "grammar_analysis": "It's likely a noun, possibly meaning 'laziness' or 'idleness' in this context."
+        },
+        {
+          "source_term": "དུས།",
+          "normalized_term": "དུས",
+          "categories": {
+            "person": {
+              "translations": [
+                "Kāla"
+              ],
+              "definitions": [
+                "One of the pratyeka­buddhas attending the delivery of the MMK; one of the śrāvakas; avidyārājafrom the personal retinue of Vajrapāṇi."
+              ],
+              "translation_found": false
+            }
+          },
+          "found_in_source": true,
+          "found_in_translation": false,
+          "grammar_analysis": "It's a noun, meaning 'time' or 'period'."
+        }
+      ],
+      "score": 20.0
+    },
+    {
+      "line_number": 5,
+      "source": "མྱུ་གུ་ས་བོན་ལས་སྐྱེ་ཞིང་། །ས་བོན་དེ་ཉིད་ཀྱིས་རྟོགས་བཞིན། །ཤེས་བྱ་ལས་སྐྱེས་ཤེས་པ་ཡིས། །དེ་ཡོད་པ་ནི་ཅིས་མི་རྟོགས། །",
+      "target": "A shoot arises from a seed, And due to this, the seed is known. Why don't we know the object exists Through the cognition it produces?",
+      "terms": [
+        {
+          "source_term": "མྱུ་གུ",
+          "normalized_term": "མྱུ་གུ",
+          "categories": {
+            "person": {
+              "translations": [
+                "Tumor"
+              ],
+              "definitions": [
+                "A bhūta king present in the assembly of the Buddha Śākyamuni."
+              ],
+              "translation_found": false
+            }
+          },
+          "found_in_source": true,
+          "found_in_translation": false,
+          "grammar_analysis": "Has no case marker, used as the subject of the sentence."
+        },
+        {
+          "source_term": "ས་བོན།",
+          "normalized_term": "ས་བོན",
+          "categories": {
+            "term": {
+              "translations": [
+                "seed"
+              ],
+              "definitions": [
+                "Seedof a plant; the syllable from which a deity manifests."
+              ],
+              "translation_found": true
+            }
+          },
+          "found_in_source": true,
+          "found_in_translation": true,
+          "grammar_analysis": "Has no case marker, used as the subject/topic of the sentence."
+        },
+        {
+          "source_term": "ས་བོན།",
+          "normalized_term": "ས་བོན",
+          "categories": {
+            "term": {
+              "translations": [
+                "seed"
+              ],
+              "definitions": [
+                "Seedof a plant; the syllable from which a deity manifests."
+              ],
+              "translation_found": true
+            }
+          },
+          "found_in_source": true,
+          "found_in_translation": true,
+          "grammar_analysis": "Has no case marker, used as the subject/topic of the sentence."
+        },
+        {
+          "source_term": "ཤེས་པ།",
+          "normalized_term": "ཤེས་པ",
+          "categories": {
+            "term": {
+              "translations": [
+                "Āyurveda"
+              ],
+              "definitions": [
+                "The classical system of Indian medicine."
+              ],
+              "translation_found": false
+            }
+          },
+          "found_in_source": true,
+          "found_in_translation": false,
+          "grammar_analysis": "Has no case marker, used as the subject/topic of the sentence."
+        },
+        {
+          "source_term": "ཡོད་པ།",
+          "normalized_term": "ཡོད་པ",
+          "categories": {
+            "term": {
+              "translations": [
+                "there-is"
+              ],
+              "definitions": [],
+              "translation_found": false
+            }
+          },
+          "found_in_source": true,
+          "found_in_translation": false,
+          "grammar_analysis": "Has no case marker, used as the subject/topic of the sentence."
+        }
+      ],
+      "score": 40.0
+    }
+  ]
+}
