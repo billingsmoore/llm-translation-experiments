@@ -1,4 +1,5 @@
 claudette
 tqdm
 sacrebleu
-nltk
+pandas
+matplotlib

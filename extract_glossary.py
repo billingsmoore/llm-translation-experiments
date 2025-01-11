@@ -22,7 +22,7 @@ def generate_prompt(source, translation):
     return f"""
 # Glossary Extraction Prompt
 
-Extract Tibetan to English Glossary from the following translation:
+Extract Tibetan to English Glossary of Jargon terms from the following translation:
 Tibetan: {source} English: {translation}
 
 ## Core Instructions
@@ -31,14 +31,12 @@ Tibetan: {source} English: {translation}
 - DO NOT create a new translation for missing translation of Tibetan term
 - Each Tibetan term should only have one English translation term in the Glossary
 - Create a set of glossary for each Tibetan line separately
-- Follow the example response format
 - Do not include any additional information
 
 ## Example Response Format:
 1 བདེ་གཤེགས་ཆོས་ཀྱི་སྐུ་མངའ་སྲས་བཅས་དང་།
 1.1 བདེ་གཤེགས་ (Sugata)
 1.2 ཆོས་ཀྱི་སྐུ་ (dharmakāya)
-1.3 མངའ་ (possess)
 1.4 སྲས་ (offspring)
 2 །ཕྱག་འོས་ཀུན་ལའང་གུས་པར་ཕྱག་འཚལ་ཏེ།
 2.1 ཕྱག་འོས་ (worthy of veneration)
@@ -123,7 +121,7 @@ def extract_glossary():
             glossary = parse_glossary(output)
             save_glossary(text_id, glossary)
         for exp_name, llm_translation in get_experiments_translation(text_id):
-            if exp_name != "06_glossary_assisted":
+            if exp_name != "07_commentary_and_glossary_assisted":
                 continue
             if is_glossary_extracted(text_id, exp_name=exp_name):
                 continue
