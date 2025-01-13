@@ -31,6 +31,7 @@ for text_id, data in results.items():
                         "translation": en_word,
                         "source": text_id,
                         "line": line,
+                        "label": label,
                     }
                 )
 
@@ -39,17 +40,27 @@ for text_id, data in results.items():
 
 
 def export_to_csv(label):
-    header = ["Word", "Translation", "Line", "Verse"]
+    header = ["Word", "Translation", "Context", "Source", "Source Translation"]
     rows = []
     for word, translations in word_translations.items():
         data = translations[label]
+        if len(data) < 5:
+            continue
         for item in data:
+            if item["label"] == "target_gt":
+                soruce_trans = results[item["source"]]["target_gt"]
+            else:
+                soruce_trans = results[item["source"]]["target_pred"][item["label"]][
+                    "translation"
+                ]
+
             rows.append(
                 [
                     word,
                     item["translation"],
                     item["line"],
                     results[item["source"]]["source"],
+                    soruce_trans,
                 ]
             )
 
