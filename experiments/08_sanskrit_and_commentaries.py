@@ -65,7 +65,7 @@ def load_translation(fn):
 def main():
     total_cost = 0
     translations = load_translation(translation_fn)
-    for i, item in tqdm(enumerate(data[:3]), total=len(data[:3])):
+    for i, item in tqdm(enumerate(data), total=len(data)):
         tibetan_text = item["bo"]
         if tibetan_text in translations:
             total_cost += translations[tibetan_text]["cost"]
