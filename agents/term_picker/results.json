@@ -1,0 +1,110 @@
+{
+    "tibetan_term": "བྱང་ཆུབ་སེམས་",
+    "recommendations": {
+        "Academic": {
+            "term": "bodhicitta",
+            "reasoning": "These terms are widely accepted in academic Buddhist studies, reflecting both the Sanskrit original and its conceptual meaning. 'Bodhicitta' preserves the technical nature, while 'awakening mind' and 'mind of enlightenment' offer more interpretive translations that capture the essence of the concept."
+        },
+        "Practitioner": {
+            "term": "bodhichitta",
+            "reasoning": "For practitioners, 'bodhichitta' is often left untranslated due to its widespread use. 'Enlightened attitude' and 'heart of awakening' are more evocative translations that emphasize the transformative and compassionate aspects of the concept, aligning with the practitioner's focus on cultivation and application."
+        },
+        "General": {
+            "term": "altruistic intention",
+            "reasoning": "For a general audience, these terms convey the core meaning of བྱང་ཆུབ་སེམས་ without requiring specialized Buddhist knowledge. They emphasize the altruistic and aspirational aspects of the concept, making it more accessible to those unfamiliar with Buddhist terminology."
+        }
+    },
+    "analysis": {
+        "semantic_fields": [
+            "Buddhist philosophy",
+            "Spiritual practice",
+            "Mental cultivation",
+            "Altruism"
+        ],
+        "usage_patterns": [
+            {
+                "pattern": "བྱང་ཆུབ་སེམས་ཉིད་རྟག་ཏུ་གཏང་མི་བྱ།",
+                "source": "Context 1",
+                "explanation": "Bodhichitta should never be abandoned, emphasizing its continuous cultivation"
+            },
+            {
+                "pattern": "བྱང་ཆུབ་སེམས་སྐྱེས་གྱུར་ན་སྐད་ཅིག་གིས།",
+                "source": "Context 2",
+                "explanation": "When bodhichitta arises, it instantly transforms one's status"
+            },
+            {
+                "pattern": "བྱང་ཆུབ་སེམས་ཞེས་བྱ་བ་རབ་བརྟན་ཟུང་།",
+                "source": "Context 3",
+                "explanation": "Firmly grasp what is called bodhichitta, indicating its importance"
+            },
+            {
+                "pattern": "བྱང་ཆུབ་སེམས་ཀྱི་སྟོབས་ཀྱིས།",
+                "source": "Context 13",
+                "explanation": "By the power of bodhichitta, emphasizing its transformative power"
+            },
+            {
+                "pattern": "བྱང་ཆུབ་སེམས་ནི་བསྒོམ་པར་བྱ།",
+                "source": "Context 15",
+                "explanation": "One should meditate on bodhichitta, highlighting it as a meditation practice"
+            }
+        ],
+        "technical_analysis": "བྱང་ཆུབ་སེམས་ (bodhichitta) is consistently portrayed as a fundamental concept in Mahayana Buddhist practice. It is described as something to be cultivated, never abandoned, and firmly grasped. The texts emphasize its transformative power, its ability to exhaust past negative actions, and its role in accumulating merit. It is also presented as a subject of meditation and a key factor in progressing on the bodhisattva path.",
+        "cultural_context": "In these contexts, བྱང་ཆུབ་སེམས་ is central to Mahayana Buddhist soteriology. It is seen as superior to the practices of hearers (ཉན་ཐོས་), indicating its importance in the Mahayana path. The term is often used in aspirational contexts, such as vows and prayers for the benefit of all beings, reflecting the altruistic nature of Mahayana Buddhism."
+    },
+    "evaluations": {
+        "bodhicitta": {
+            "technical_score": 0.9,
+            "cultural_score": 0.8,
+            "audience_score": 0.7,
+            "reasoning": "Highly accurate technical term, preserves original Sanskrit. Culturally relevant for academics and practitioners. May be less accessible for general audiences."
+        },
+        "awakening mind": {
+            "technical_score": 0.8,
+            "cultural_score": 0.7,
+            "audience_score": 0.8,
+            "reasoning": "Captures the essence well, balancing technical accuracy with accessibility. Culturally relevant but less specific than Sanskrit term. More accessible for general audience."
+        },
+        "mind of enlightenment": {
+            "technical_score": 0.8,
+            "cultural_score": 0.7,
+            "audience_score": 0.8,
+            "reasoning": "Similar to 'awakening mind', balances accuracy and accessibility. Culturally relevant but less specific than Sanskrit. Generally accessible."
+        },
+        "bodhichitta": {
+            "technical_score": 0.9,
+            "cultural_score": 0.9,
+            "audience_score": 0.6,
+            "reasoning": "Highly accurate and culturally relevant for practitioners. Preserves original term. Less accessible for general audience."
+        },
+        "enlightened attitude": {
+            "technical_score": 0.7,
+            "cultural_score": 0.8,
+            "audience_score": 0.8,
+            "reasoning": "Captures the essence, though less technically precise. Culturally relevant and fairly accessible to general audience."
+        },
+        "heart of awakening": {
+            "technical_score": 0.7,
+            "cultural_score": 0.8,
+            "audience_score": 0.8,
+            "reasoning": "Evocative and captures the spirit of the concept. Less technically precise but culturally relevant and accessible."
+        },
+        "altruistic intention": {
+            "technical_score": 0.6,
+            "cultural_score": 0.7,
+            "audience_score": 0.9,
+            "reasoning": "Captures a key aspect but misses some technical nuances. Culturally relevant and highly accessible to general audience."
+        },
+        "spirit of enlightenment": {
+            "technical_score": 0.7,
+            "cultural_score": 0.8,
+            "audience_score": 0.8,
+            "reasoning": "Balances technical accuracy and accessibility. Culturally relevant and generally understandable."
+        },
+        "compassionate resolve": {
+            "technical_score": 0.6,
+            "cultural_score": 0.8,
+            "audience_score": 0.9,
+            "reasoning": "Emphasizes compassionate aspect but misses some technical depth. Culturally relevant and highly accessible to general audience."
+        }
+    }
+}

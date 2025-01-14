@@ -1,5 +1,6 @@
 import json
 from dataclasses import dataclass
+from datetime import datetime
 from enum import Enum
 from typing import Dict, List, Optional
 
@@ -24,19 +25,58 @@ class BuddhistTermAnalyzer:
     def __init__(self):
         # Use Claude 3.5 Sonnet
         self.model = models[1]  # claude-3-5-sonnet
+        self.total_api_calls_cost = 0
+        self.token_usage = {}
 
         # Initialize different chats for different analysis types
         self.system_prompts = {
-            AnalysisType.SEMANTIC: """You are an expert in Buddhist terminology analysis.
+            AnalysisType.SEMANTIC: """You are an expert in Buddhist terminology analysis with deep knowledge of Sanskrit and Tibetan.
+            Analyze the given term through a systematic philological approach.
             You must ONLY respond with a valid JSON object, no other text.
             Never include any explanatory text before or after the JSON.
 
             Required JSON structure:
             {
-                "semantic_fields": ["field1", "field2", ...],
-                "usage_patterns": ["pattern1", "pattern2", ...],
-                "technical_analysis": "string",
-                "cultural_context": "string"
+                "sanskrit_analysis": {
+                    "term": "string",  # Sanskrit equivalent
+                    "morphology": "string",  # Morphological breakdown
+                    "literal_meaning": "string",  # Literal meaning in Sanskrit
+                    "technical_usage": "string"  # Technical usage in Sanskrit Buddhist literature
+                },
+                "tibetan_mapping": {
+                    "term": "string",  # Tibetan term
+                    "morphology": "string",  # Morphological breakdown of Tibetan
+                    "translation_strategy": "string",  # How Tibetan translates the Sanskrit
+                    "semantic_extension": "string"  # Any semantic changes or extensions in Tibetan
+                },
+                "commentary_insights": [
+                    {
+                        "source": "string",  # Which commentary
+                        "explanation": "string",  # Key explanation
+                        "technical_points": ["string"]  # Technical clarifications
+                    }
+                ],
+                "english_renderings": [
+                    {
+                        "translation": "string",
+                        "accuracy_score": number,  # 1-10
+                        "captures_sanskrit": boolean,
+                        "captures_tibetan": boolean,
+                        "notes": "string"
+                    }
+                ],
+                "semantic_synthesis": {
+                    "core_meaning": "string",  # Core meaning synthesized from all sources
+                    "technical_usage": ["string"],  # List of technical usages found in context
+                    "connotative_aspects": ["string"]  # Important connotations and implications
+                },
+                "usage_examples": [
+                    {
+                        "source_text": "string",  # Original context
+                        "usage_type": "string",  # How term is used here
+                        "commentary_explanation": "string"  # What commentary says about this usage
+                    }
+                ]
             }""",
             AnalysisType.TERM_GENERATION: """You are an expert Buddhist translator.
             You must ONLY respond with a valid JSON object, no other text.
@@ -82,12 +122,45 @@ class BuddhistTermAnalyzer:
 
     def create_semantic_prompt(self, tibetan_term: str, contexts: List[Dict]) -> str:
         return f"""
-        Respond ONLY with a JSON object analyzing this term and contexts:
+        Analyze this Buddhist term following these steps:
 
-        Term: {tibetan_term}
+        Target Term: {tibetan_term}
+
+        Analysis Process:
+        1. First analyze the Sanskrit source:
+           - Identify the Sanskrit equivalent
+           - Break down its morphology
+           - Understand its literal and technical meanings
+
+        2. Map to Tibetan:
+           - Analyze how Tibetan translates the Sanskrit
+           - Note any semantic extensions or modifications
+           - Understand the translation strategy
+
+        3. Study the commentaries:
+           - Extract key explanations
+           - Note technical clarifications
+           - Identify special usages explained
+
+        4. Evaluate English translations:
+           - Compare against Sanskrit and Tibetan meanings
+           - Assess accuracy and completeness
+           - Note which aspects are captured/missed
+
+        5. Synthesize understanding:
+           - Combine insights from all sources
+           - Document technical usage patterns
+           - Note important connotations
 
         Contexts:
         {json.dumps(contexts, indent=2, ensure_ascii=False)}
+
+        Important:
+        - Base analysis strictly on provided contexts
+        - Use commentaries to resolve ambiguities
+        - Pay special attention to technical terms in commentaries
+        - Note when English translations diverge from Sanskrit/Tibetan
+        - Document specific usage examples from the context
 
         Remember: Return ONLY the JSON object with no other text."""
 
@@ -120,12 +193,21 @@ class BuddhistTermAnalyzer:
 
         Remember: Return ONLY the JSON object with no other text."""
 
+    def _track_usage(self, analysis_type: AnalysisType, response):
+        cost = self.chats[analysis_type].cost
+        self.total_api_calls_cost += cost
+        self.token_usage[str(analysis_type)] = {
+            "token_usage": repr(response.usage),
+            "api_call_cost": cost,
+        }
+
     def analyze_term(self, tibetan_term: str, contexts: List[Dict]) -> Dict:
         """Main analysis pipeline using cached prompts"""
 
         # 1. Semantic Analysis with cache
         semantic_prompt = self.create_semantic_prompt(tibetan_term, contexts)
         semantic_response = self.chats[AnalysisType.SEMANTIC](semantic_prompt)
+        self._track_usage(AnalysisType.SEMANTIC, semantic_response)
         semantic_analysis = json.loads(semantic_response.content[0].text)
 
         # 2. Term Generation with cache
@@ -135,6 +217,8 @@ class BuddhistTermAnalyzer:
         generation_response = self.chats[AnalysisType.TERM_GENERATION](
             generation_prompt
         )
+        self._track_usage(AnalysisType.TERM_GENERATION, generation_response)
+        semantic_analysis = json.loads(semantic_response.content[0].text)
         candidates = json.loads(generation_response.content[0].text)
 
         # 3. Evaluation with cache
@@ -142,11 +226,15 @@ class BuddhistTermAnalyzer:
             tibetan_term, candidates, semantic_analysis
         )
         evaluation_response = self.chats[AnalysisType.EVALUATION](evaluation_prompt)
+        self._track_usage(AnalysisType.EVALUATION, evaluation_response)
         evaluations = json.loads(evaluation_response.content[0].text)
 
         # Combine results
         return self.format_results(
-            tibetan_term, semantic_analysis, candidates, evaluations
+            tibetan_term,
+            semantic_analysis,
+            candidates,
+            evaluations,
         )
 
     def format_results(
@@ -175,6 +263,8 @@ class BuddhistTermAnalyzer:
             },
             "analysis": semantic_analysis,
             "evaluations": evaluations["evaluations"],
+            "total_api_calls_cost": self.total_api_calls_cost,
+            "token_usage": self.token_usage,
         }
 
 
@@ -202,7 +292,12 @@ def main():
 
     # Process term
     results = agent.select_best_terms(tibetan_term, contexts)
-    print(json.dumps(results, indent=2, ensure_ascii=False))
+    date_time = datetime.now().strftime("%Y%m%d%H%M%S")
+    results_path = Path(__file__).parent / "results"
+    results_path.mkdir(exist_ok=True, parents=True)
+    result_fn = results_path / f"{tibetan_term}_{date_time}.json"
+    json.dump(results, result_fn.open("w"), indent=2, ensure_ascii=False)
+    print(f"Results saved to: {result_fn}")
 
 
 if __name__ == "__main__":
