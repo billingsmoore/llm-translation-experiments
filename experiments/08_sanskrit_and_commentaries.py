@@ -9,8 +9,10 @@ model_name = claudette.models[1]
 
 data_path = Path(__file__).parent.parent / "data" / "chonjuk" / "combined_data.json"
 data = json.loads(data_path.read_text())
-translation_fn = Path(__file__).parent / "data" / "chonjuk_translation.json"
-total_api_cost_call_fn = Path(__file__).parent / "data" / "total_api_call_cost.json"
+results_path = Path(__file__).parent.parent / "data" / "results"
+results_path.mkdir(exist_ok=True, parents=True)
+translation_fn = results_path / "chonjuk_translation.json"
+total_api_cost_call_fn = results_path / "total_api_call_cost.json"
 
 
 def generate_prompt(tibetan_text, commentaries, sanskrit):
@@ -66,6 +68,7 @@ def main():
     for i, item in tqdm(enumerate(data[:3]), total=len(data[:3])):
         tibetan_text = item["bo"]
         if tibetan_text in translations:
+            total_cost += translations[tibetan_text]["cost"]
             continue
         commentaries = [item["com_1"], item["com_2"]]
         sanskrit = item["sa"]
@@ -78,8 +81,9 @@ def main():
         total_cost += translation["api_call_cost"]
 
         if i % 2 == 0:
-            with open(translation_fn, "w") as file:
-                json.dump(translations, file, ensure_ascii=False, indent=2)
+            json.dump(
+                translations, translation_fn.open("w"), ensure_ascii=False, indent=2
+            )
 
     print(f"Total cost: {total_cost}")
     json.dump(translations, translation_fn.open("w"), ensure_ascii=False, indent=2)
