@@ -7,13 +7,30 @@ from glossary_checker import GlossaryChecker
 
 
 class TranslationValidator:
+    """
+    Validates translations against a glossary using an LLM to filter contextually relevant terms.
+    """
     def __init__(self, glossary_checker, anthropic_api_key):
-        """Initialize validator with glossary checker and API key."""
+        """
+        Initialize the TranslationValidator with a glossary checker and an API key for the LLM.
+
+        Args:
+            glossary_checker (GlossaryChecker): Instance of GlossaryChecker for term validation.
+            anthropic_api_key (str): API key for accessing the Claude LLM.
+        """        
         self.checker = glossary_checker
         self.client = Anthropic(api_key=anthropic_api_key)
 
     def load_aligned_file(self, file_path):
-        """Load tab-separated source and target segments from a single file."""
+        """
+        Load a tab-separated file containing aligned source and target segments.
+
+        Args:
+            file_path (str or Path): Path to the aligned file.
+
+        Returns:
+            aligned_pairs (list of tuples): List of (source, target) text pairs.
+        """
         aligned_pairs = []
         with open(file_path, "r", encoding="utf-8") as f:
             for line in f:
@@ -32,7 +49,16 @@ class TranslationValidator:
         return aligned_pairs
 
     def filter_terms_with_llm(self, source_text, found_terms):
-        """Use Claude to filter out terms that are not used as nouns in context."""
+        """
+        Use an LLM to filter out glossary terms that are not used as nouns in the given context.
+
+        Args:
+            source_text (str): The source text containing the terms.
+            found_terms (list of dict): Terms found by the glossary checker.
+
+        Returns:
+            list of dict: Filtered terms that are valid nouns/names in context.
+        """
         if not found_terms:
             return []
 
@@ -81,7 +107,15 @@ Return your analysis as a JSON list in this format:
             return []
 
     def calculate_translation_score(self, found_terms):
-        """Calculate translation score based on glossary adherence."""
+        """
+        Calculate a translation quality score based on glossary adherence.
+
+        Args:
+            found_terms (list of dict): Terms found in translation.
+
+        Returns:
+            float: Translation score as a percentage.
+        """
         if not found_terms:
             return 0.0
 
@@ -102,7 +136,15 @@ Return your analysis as a JSON list in this format:
         )
 
     def validate_translation(self, aligned_file_path):
-        """Process aligned file and validate translations."""
+        """
+        Validate translations by checking against a glossary and filtering terms with an LLM.
+
+        Args:
+            aligned_file_path (str or Path): Path to the aligned file.
+
+        Returns:
+            list of dict: Validation results for each translation pair.
+        """
         # Load aligned texts
         aligned_pairs = self.load_aligned_file(aligned_file_path)
 
@@ -131,7 +173,13 @@ Return your analysis as a JSON list in this format:
         return results
 
     def save_results(self, results, output_path):
-        """Save validation results to JSON file."""
+        """
+        Save validation results to a JSON file.
+
+        Args:
+            results (list of dict): Processed validation results.
+            output_path (str or Path): File path to save results.
+        """
         with open(output_path, "w", encoding="utf-8") as f:
             json.dump(
                 {

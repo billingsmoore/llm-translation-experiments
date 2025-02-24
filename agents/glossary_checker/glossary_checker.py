@@ -6,22 +6,55 @@ from xml.etree.ElementTree import Element, SubElement, tostring
 
 class GlossaryChecker:
     def __init__(self, glossary_path):
+        """
+        Initialize the GlossaryChecker by loading the glossary and building term mappings.
+        
+        Args:
+            glossary_path (str): Path to the JSON glossary file.
+        """
         self.glossary = self._load_glossary(glossary_path)
         self._build_term_mappings()
 
     def _load_glossary(self, path):
+        """
+        Load glossary data from a JSON file.
+        
+        Args:
+            path (str): Path to the glossary JSON file.
+        
+        Returns:
+            dict: Loaded glossary data.
+        """
         with open(path, "r", encoding="utf-8") as f:
             return json.load(f)
 
     def _normalize_tibetan_term(self, text):
-        """Normalize Tibetan text by removing common punctuation."""
+        """
+        Normalize Tibetan text by removing specific punctuation and trailing characters.
+        This ensures consistent term matching.
+        
+        Args:
+            text (str): Tibetan text to be normalized.
+        
+        Returns:
+            text (str): Normalized Tibetan text.
+        """        
         text = text.replace("།", "")
         if text.endswith("་"):
             text = text[:-1]
         return text
 
     def get_tibetan_syllables(self, text):
-        """Split Tibetan text into syllables."""
+        """
+        Split Tibetan text into individual syllables based on spaces and the syllable marker (་).
+        This facilitates term extraction and comparison.
+        
+        Args:
+            text (str): Tibetan text to be split.
+        
+        Returns:
+            syllables (list): A list of extracted syllables.
+        """
         text = text.replace("།", "")
         syllables = []
         for chunk in text.split():
@@ -30,7 +63,16 @@ class GlossaryChecker:
         return syllables
 
     def _build_term_mappings(self):
-        """Build mappings for terms, including their semantic categories and definitions."""
+        """
+        Construct mappings for Tibetan terms by associating them with semantic categories and definitions.
+        These mappings are used to verify that translations preserve expected meanings.
+
+        Args:
+            None
+
+        Returns:
+            None
+        """
         self.term_info = {}  # Store complete term information
         self.terms = set()  # Normalized terms for matching
 
@@ -50,7 +92,15 @@ class GlossaryChecker:
                     }
 
     def extract_terms(self, text):
-        """Extract terms based on Tibetan syllable matching."""
+        """
+        Extract known Tibetan terms from the source text by matching syllables to glossary terms.
+        
+        Args:
+            text (str): The source text to analyze.
+        
+        Returns:
+            found_terms (list): A list of identified terms found in the text.
+        """
         text_syllables = self.get_tibetan_syllables(text)
         found_terms = []
 
@@ -72,7 +122,16 @@ class GlossaryChecker:
         return found_terms
 
     def check(self, source_text, translation_text):
-        """Check source text and translation against the glossary with category information."""
+        """
+        Compare extracted Tibetan terms against the translation to verify if expected meanings are preserved.
+        
+        Args:
+            source_text (str): The original Tibetan text.
+            translation_text (str): The translated text.
+        
+        Returns:
+            results (list): A list of dictionaries containing term details and whether they were found in the translation.
+        """
         results = []
         found_terms = self.extract_terms(source_text)
 
