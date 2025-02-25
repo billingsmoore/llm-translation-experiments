@@ -9,15 +9,15 @@ def is_similar_or_subset(
     text1: str, text2: str, similarity_threshold: float = 0.8
 ) -> bool:
     """
-    Check if two texts are similar or one is a subset of the other.
+    Check if two text strings are either similar or one is a subset of the other.
 
     Args:
-        text1: First text string
-        text2: Second text string
-        similarity_threshold: Threshold for similarity ratio (default 0.8)
+        text1 (str): First text string to compare.
+        text2 (str): Second text string to compare.
+        similarity_threshold (float): Threshold for similarity ratio (default is 0.8).
 
     Returns:
-        bool: True if texts are similar or one is subset of other
+        bool: True if the texts are similar or one is a subset of the other, otherwise False.
     """
     # Check if one text is completely contained within the other
     if text1 in text2 or text2 in text1:
@@ -30,15 +30,15 @@ def is_similar_or_subset(
 
 def add_definition(definitions: Set[str], new_def: str) -> Set[str]:
     """
-    Add a new definition to the set, removing any existing similar or subset definitions.
-    Keep the longer definition when there's significant overlap.
+    Add a new definition to the set while removing similar or subset definitions.
+    Retains the longer definition when overlap is detected.
 
     Args:
-        definitions: Existing set of definitions
-        new_def: New definition to add
+        definitions (Set[str]): Existing set of definitions.
+        new_def (str): New definition to be added.
 
     Returns:
-        Set[str]: Updated set of definitions
+        Set[str]: Updated set of definitions with redundant ones removed.
     """
     # Remove any existing definitions that are similar/subset
     defs_to_remove = set()
@@ -65,8 +65,14 @@ def add_definition(definitions: Set[str], new_def: str) -> Set[str]:
 
 def parse_glossary_xml(xml_file: str) -> Dict:
     """
-    Parse the glossary XML file and group by Tibetan terms.
-    Handle similar definitions and keep the most complete ones.
+    Parse a glossary XML file and group data by Tibetan terms.
+    Filters out similar definitions, keeping the most complete ones.
+
+    Args:
+        xml_file (str): Path to the XML file containing glossary data.
+
+    Returns:
+        Dict: A dictionary containing Tibetan terms mapped to their types, translations, and definitions.
     """
     namespace = {"ns": "http://read.84000.co/ns/1.0"}
 
@@ -118,12 +124,22 @@ def parse_glossary_xml(xml_file: str) -> Dict:
 
 
 def save_to_json(terms: Dict, output_file: str) -> None:
-    """Save the parsed terms to a JSON file."""
+    """
+    Save parsed glossary data to a JSON file.
+
+    Args:
+        terms (Dict): Parsed Tibetan terms and their associated data.
+        output_file (str): Path to the output JSON file.
+    """
     with open(output_file, "w", encoding="utf-8") as f:
         json.dump(terms, f, ensure_ascii=False, indent=2)
 
 
 def main():
+    """
+    Main function to parse glossary XML and save the output as JSON.
+    Handles file errors and reports parsing progress.
+    """
     input_xml = "data/84000_glossary.xml"
     output_json = "data/84000_glossary.json"
 
