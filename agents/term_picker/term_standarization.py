@@ -22,7 +22,17 @@ class AnalysisType(Enum):
 
 
 class BuddhistTermAnalyzer:
+    """
+    A class for analyzing Buddhist terminology using AI models. It provides semantic analysis, term generation,
+    and translation evaluation for Tibetan Buddhist terms in relation to Sanskrit and English.
+    """
+
     def __init__(self):
+        """
+        Initialize the BuddhistTermAnalyzer with AI models and predefined system prompts.
+        This sets up different chats for different types of analysis.
+        """
+
         # Use Claude 3.5 Sonnet
         self.model = models[1]  # claude-3-5-sonnet
         self.total_api_calls_cost = 0
@@ -121,6 +131,17 @@ class BuddhistTermAnalyzer:
         }
 
     def create_semantic_prompt(self, tibetan_term: str, contexts: List[Dict]) -> str:
+        """
+        Generate a structured prompt for semantic analysis of a Tibetan Buddhist term.
+        
+        Args:
+            tibetan_term (str): The Tibetan term to analyze.
+            contexts (List[Dict]): A list of contextual references for the term.
+        
+        Returns:
+            str: A formatted string prompt for the AI model.
+        """
+        
         return f"""
         Analyze this Buddhist term following these steps:
 
@@ -167,6 +188,18 @@ class BuddhistTermAnalyzer:
     def create_generation_prompt(
         self, tibetan_term: str, semantic_analysis: Dict
     ) -> str:
+        
+        """
+        Generate a structured prompt for term generation based on semantic analysis.
+        
+        Args:
+            tibetan_term (str): The Tibetan term to generate translations for.
+            semantic_analysis (Dict): The result of prior semantic analysis.
+        
+        Returns:
+            str: A formatted string prompt for the AI model.
+        """
+
         return f"""
         Respond ONLY with a JSON object containing translation candidates:
 
@@ -180,6 +213,18 @@ class BuddhistTermAnalyzer:
     def create_evaluation_prompt(
         self, tibetan_term: str, candidates: Dict, semantic_analysis: Dict
     ) -> str:
+        """
+        Generate a structured prompt to evaluate translation candidates against semantic analysis.
+        
+        Args:
+            tibetan_term (str): The Tibetan term being evaluated.
+            candidates (Dict): A dictionary of candidate translations.
+            semantic_analysis (Dict): The result of prior semantic analysis.
+        
+        Returns:
+            str: A formatted string prompt for the AI model.
+        """
+
         return f"""
         Respond ONLY with a JSON object evaluating these candidates:
 
@@ -194,6 +239,16 @@ class BuddhistTermAnalyzer:
         Remember: Return ONLY the JSON object with no other text."""
 
     def _track_usage(self, analysis_type: AnalysisType, response):
+        """
+        Track the cost and token usage of API calls for different types of analysis.
+        
+        Args:
+            analysis_type (AnalysisType): The type of analysis performed.
+            response: The response object containing API usage details.
+
+        Returns:
+            None
+        """
         cost = self.chats[analysis_type].cost
         self.total_api_calls_cost += cost
         self.token_usage[str(analysis_type)] = {
@@ -202,7 +257,17 @@ class BuddhistTermAnalyzer:
         }
 
     def analyze_term(self, tibetan_term: str, contexts: List[Dict]) -> Dict:
-        """Main analysis pipeline using cached prompts"""
+        """
+        Conduct a full analysis of a Tibetan term, including semantic analysis, term generation, and evaluation.
+        
+        Args:
+            tibetan_term (str): The Tibetan term to analyze.
+            contexts (List[Dict]): A list of contextual references for the term.
+        
+        Returns:
+            Dict: A structured dictionary containing the analysis results, including semantic analysis,
+                  generated term candidates, evaluations, and API usage details.
+        """
 
         # 1. Semantic Analysis with cache
         semantic_prompt = self.create_semantic_prompt(tibetan_term, contexts)
@@ -244,7 +309,18 @@ class BuddhistTermAnalyzer:
         candidates: Dict,
         evaluations: Dict,
     ) -> Dict:
-        """Format the final results"""
+        """
+        Format the final results of the analysis into a structured dictionary.
+        
+        Args:
+            tibetan_term (str): The Tibetan term analyzed.
+            semantic_analysis (Dict): The result of semantic analysis.
+            candidates (Dict): The generated translation candidates.
+            evaluations (Dict): The evaluations of the generated terms.
+        
+        Returns:
+            Dict: A structured dictionary containing formatted analysis results.
+        """
         return {
             "tibetan_term": tibetan_term,
             "recommendations": {
@@ -269,17 +345,37 @@ class BuddhistTermAnalyzer:
 
 
 class TermStandardizationAgent:
+    """
+    A wrapper class for standardizing Buddhist terminology using the BuddhistTermAnalyzer.
+    """
+
     def __init__(self):
+        """
+        Initialize the TermStandardizationAgent with a BuddhistTermAnalyzer instance.
+        """
         self.analyzer = BuddhistTermAnalyzer()
 
     def select_best_terms(self, tibetan_term: str, contexts: List[Dict]) -> Dict:
-        """Main entry point for term standardization"""
+        """
+        Main entry point for term standardization. Select the best translation terms for a given Tibetan term based on semantic analysis and evaluation.
+        
+        Args:
+            tibetan_term (str): The Tibetan term to analyze.
+            contexts (List[Dict]): Contextual references for the term.
+        
+        Returns:
+            Dict: The final selection of best terms along with supporting analysis.
+        """
         results = self.analyzer.analyze_term(tibetan_term, contexts)
         return results
 
 
 # Example usage
 def main():
+    """
+    Main function to execute term standardization analysis.
+    Reads input, processes the term, and saves the results.
+    """
     from pathlib import Path
 
     # Initialize agent

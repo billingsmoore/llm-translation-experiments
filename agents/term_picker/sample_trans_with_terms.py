@@ -12,7 +12,16 @@ combined_data = json.loads(combined_data_fn.read_text())
 
 
 def filter_tarns_with_term(data, term):
-    """Filter translations with terms."""
+    """
+    Filter translations containing a specific Tibetan term.
+    
+    Args:
+        data (list): List of translation entries loaded from JSON.
+        term (str): The Tibetan term to filter by.
+    
+    Returns:
+        list: A list of dictionaries containing filtered translations.
+    """
     filtered_translations = []
     for item in data:
         if not ((item["com_1"] or item["com_2"]) and (item["en_1"] or item["en_2"])):
@@ -33,6 +42,10 @@ def filter_tarns_with_term(data, term):
 
 
 def main():
+    """
+    Main function to filter translations for a predefined list of Tibetan terms
+    and save results to JSON files if enough translations are found.
+    """
     tibetan_terms = [
         "བྱང་ཆུབ་སེམས་",
         "སྡུག་བསྔལ་",
